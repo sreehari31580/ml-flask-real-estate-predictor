@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - House Price Prediction{% endblock %}
+
+{% block content %}
+<h3 class="text-center mb-4">Select a Prediction Algorithm</h3>
+<div class="row">
+    <!-- Polynomial Regression Card -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="bi bi-graph-up fs-1 mb-3"></i>
+                <h5 class="card-title">Polynomial Regression</h5>
+                <p class="card-text">R² Score: {{ accuracy_scores['Polynomial Regression R2 Score'] }}</p>
+                <a href="/polynomial" class="btn btn-primary">Select</a>
+            </div>
+        </div>
+    </div>
+    <!-- KNN Classifier Card -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="bi bi-diagram-3 fs-1 mb-3"></i>
+                <h5 class="card-title">KNN Classifier</h5>
+                <p class="card-text">Accuracy: {{ accuracy_scores['KNN Classifier Accuracy'] }}</p>
+                <a href="/knn" class="btn btn-primary">Select</a>
+            </div>
+        </div>
+    </div>
+    <!-- Logistic Regression Card -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="bi bi-bar-chart-line fs-1 mb-3"></i>
+                <h5 class="card-title">Logistic Regression</h5>
+                <p class="card-text">Accuracy: {{ accuracy_scores['Logistic Regression Accuracy'] }}</p>
+                <a href="/logistic" class="btn btn-primary">Select</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

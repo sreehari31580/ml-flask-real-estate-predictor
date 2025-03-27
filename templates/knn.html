@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}KNN Classifier - House Price Prediction{% endblock %}
+
+{% block content %}
+<h3 class="text-center mb-4">KNN Classifier</h3>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form action="/knn" method="post">
+            <div class="mb-3">
+                <label for="square_footage" class="form-label">Square Footage</label>
+                <input type="number" class="form-control" id="square_footage" name="square_footage" required>
+            </div>
+            <div class="mb-3">
+                <label for="bedrooms" class="form-label">Bedrooms</label>
+                <input type="number" class="form-control" id="bedrooms" name="bedrooms" required>
+            </div>
+            <div class="mb-3">
+                <label for="location_score" class="form-label">Location Score (1-10)</label>
+                <input type="number" class="form-control" id="location_score" name="location_score" min="1" max="10" required>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Predict Class</button>
+            </div>
+        </form>
+        {% if prediction %}
+        <div class="alert alert-success mt-4" role="alert">
+            Prediction: {{ prediction }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
